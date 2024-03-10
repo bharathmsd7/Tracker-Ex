@@ -1,0 +1,43 @@
+# Node.js
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Operating system specific
+.DS_Store  # macOS
+Thumbs.db   # Windows
+
+# Text editors
+*.sublime-project
+*.sublime-workspace  # Sublime Text
+*.swp
+*.swo  # Vim
+*.vscode/  # Visual Studio Code
+
+# IDEs
+.idea/        # IntelliJ IDEA
+.gradle/       # Gradle
+.project
+.settings/    # Eclipse
+
+# Expo
+.expo/
+__generated__
+web-build
+
+# CI/CD
+/artifacts/*
+
+# Temporary Metro files
+.metro-health-check*
+
+# Expo Go
+/apps/expo-go/src/dist
+
+# Expo Doc merging (if applicable)
+docs/pages/versions/*/react-native/ADDED_*.md
+docs/pages/versions/*/react-native/REMOVED_*.md
+docs/pages/versions/*/react-native/*.diff
+
+# Custom additions (see considerations below)
+# ...
