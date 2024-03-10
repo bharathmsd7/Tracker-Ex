@@ -10,9 +10,9 @@ import {
   Poppins_800ExtraBold,
   useFonts,
 } from "@expo-google-fonts/poppins";
-import {
-  useSafeAreaInsets,
-} from "react-native-safe-area-context";
+// import {
+//   useSafeAreaInsets,
+// } from "react-native-safe-area-context";
 import { View } from 'react-native'
 
 const FontWrapper = ({children}) => {
@@ -32,7 +32,7 @@ const FontWrapper = ({children}) => {
     // const insets = useSafeAreaInsets();
     return (
         <View >
-        {children}
+          {children}
         </View>
     );
 }

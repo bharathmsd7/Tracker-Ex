@@ -3,14 +3,14 @@ import React from "react";
 import { screenHeight, screenWidth } from "../lib/utils";
 import { H1, H3, P, H4 } from "../components/ui/typography";
 import { Button } from "../components/ui/button";
-const Welcome = () => {
+const WelcomeScreen = ({navigation}) => {
   return (
     <>
       <View style={styles.container}>
         <View className="items-center flex-row justify-center">
           <Image
             style={styles.logo}
-            source={require("../../assets/icon.png")}
+            source={require("../../assets/images/expenselogo.png")}
           />
           <H1>TrackerX</H1>
         </View>
@@ -21,18 +21,18 @@ const Welcome = () => {
         <View className="items-center justify-center">
           <H4 >Manage you Expenses and check where you are spending</H4>
         </View>
-        <Button ><Text style={{color:'white', fontFamily:'Poppins_600SemiBold'}}>Continue</Text></Button>
+        <Button onPress={() => navigation.navigate('Login')} ><Text style={{color:'white', fontFamily:'Poppins_600SemiBold'}}>Continue</Text></Button>
       </View>
     </>
   );
 };
 
-export default Welcome;
+export default WelcomeScreen;
 
 const styles = StyleSheet.create({
   logo: {
-    width: 60,
-    height: 60,
+    width: 50,
+    height: 50,
     marginBottom: 8,
     marginRight: 4,
   },
