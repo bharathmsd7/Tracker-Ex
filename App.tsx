@@ -9,6 +9,10 @@ import { Platform } from 'react-native';
 import { NAV_THEME } from '~/src/lib/constants';
 import { useColorScheme } from '~/src/lib/useColorScheme';
 import Welcome from './src/screens/Welcome';
+import FontWrapper from './src/lib/FontWrapper';
+import {
+  SafeAreaProvider
+} from "react-native-safe-area-context";
 
 const LIGHT_THEME: Theme = {
   dark: false,
@@ -26,7 +30,7 @@ export {
 // Prevent the splash screen from auto-hiding before getting the color scheme.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
+export default function App() {
 
   const { colorScheme, setColorScheme, isDarkColorScheme } = useColorScheme();
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
@@ -63,7 +67,11 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
-      <Welcome />
+      <SafeAreaProvider>
+        <FontWrapper>
+          <Welcome />
+        </FontWrapper>
+      </SafeAreaProvider>
     </ThemeProvider>
   );
 }
