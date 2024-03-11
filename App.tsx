@@ -8,7 +8,6 @@ import * as React from 'react';
 import { Platform } from 'react-native';
 import { NAV_THEME } from '~/src/lib/constants';
 import { useColorScheme } from '~/src/lib/useColorScheme';
-import FontWrapper from './src/lib/FontWrapper';
 import {
   SafeAreaProvider
 } from "react-native-safe-area-context";
@@ -68,9 +67,7 @@ export default function App() {
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <StatusBar style={isDarkColorScheme ? 'light' : 'dark'} />
       <SafeAreaProvider>
-        {/* <FontWrapper> */}
           <Navigation />
-        {/* </FontWrapper> */}
       </SafeAreaProvider>
     </ThemeProvider>
   );

@@ -6,7 +6,7 @@ const GoogleSignInButton = () => {
   return (
     <View style={styles.container}>
         <Image style={styles.icon} source={require("../../assets/images/google.png")} />
-        <Large>Sign in with Google</Large>
+        <Large style={{fontSize: 15}}>Sign in with Google</Large>
     </View>
   )
 }
@@ -18,8 +18,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#F6F8FA",
-    borderRadius: 10,
-    paddingVertical: 14,
+    borderRadius: 50,
+    padding: 8,
     flexDirection: 'row',
     gap: 16,
 

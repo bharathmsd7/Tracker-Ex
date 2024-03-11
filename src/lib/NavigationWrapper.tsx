@@ -1,8 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import WelcomeScreen from "../screens/WelcomeScreen";
 import FontWrapper from "./FontWrapper";
 import LoginScreen from "../screens/LoginScreen";
+import HomeScreen from "../screens/HomeScreen";
+import InsightScreen from "../screens/InsightScreen";
 
 const WelcomeScreenWrapper = ({navigation}) => {
   return (
@@ -19,15 +22,45 @@ const LoginScreenWrapper = ({navigation}) => {
     </FontWrapper>
   );
 };
-const Stack = createNativeStackNavigator();
 
+const HomeScreenWrapper = ({ navigation }) => {
+  return (
+    <FontWrapper>
+      <HomeScreen navigation={navigation} />
+    </FontWrapper>
+  );
+};
+const InsightScreenWrapper = ({ navigation }) => {
+  return (
+    <FontWrapper>
+      <InsightScreen navigation={navigation} />
+    </FontWrapper>
+  );
+};
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+const TabNavigation = () => {
+  return (
+    <Tab.Navigator screenOptions={{ headerShown: false }}>
+      <Tab.Screen name="Home" component={HomeScreenWrapper} />
+      <Tab.Screen name="Insight" component={InsightScreenWrapper} />
+    </Tab.Navigator>
+  );
+}
+const StackNavigation = () => {
+  return (
+    <Stack.Navigator initialRouteName="Welcome" screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="Tab" component={TabNavigation} />
+      <Stack.Screen name="Welcome" component={WelcomeScreenWrapper} />
+      <Stack.Screen name="Login" component={LoginScreenWrapper} />
+    </Stack.Navigator>
+  );
+}
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Welcome" component={WelcomeScreenWrapper} />
-        <Stack.Screen name="Login" component={LoginScreenWrapper} />
-      </Stack.Navigator>
+      <StackNavigation />
     </NavigationContainer>
   );
 }
