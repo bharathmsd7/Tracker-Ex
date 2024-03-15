@@ -19,14 +19,19 @@ const AddExpenseScreen = () => {
         <Label variant="Bold" size={24}>
           Add new expense
         </Label>
-        <Label variant="Medium" size={16} color="#34363E">
+        <Label variant="Medium" size={14} color="#34363E">
           Enter the details of your expense to help you track you spending
         </Label>
       </View>
       <View style={styles.formContainer}>
-        <InputText label={"Enter Amount"} placeholder="Enter Amount" />
-        <InputText label={"Description"} />
-        <Button label="Add Expense"/>
+        <InputText label={"Enter Amount"} placeholder="Enter amount" />
+        <InputText
+          label={"Description"}
+          placeholder="Enter description for expense"
+        />
+        <InputText label={"Category"} />
+        <InputText label={"Date"} />
+        <Button label="Add Expense" />
       </View>
     </View>
   );
@@ -41,9 +46,9 @@ const styles = StyleSheet.create({
     height: screenHeight - 50,
   },
   headerContainer: {
-    marginVertical: 16
+    marginVertical: 32
   },
   formContainer: {
-
+    // marginTop: 8
   }
 });
