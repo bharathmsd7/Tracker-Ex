@@ -2,7 +2,7 @@ import { StyleSheet, View, Image, Text } from "react-native";
 import React from "react";
 import { screenHeight, screenWidth } from "../lib/utils";
 import { H1, Medium } from "../components/ui/typography";
-import { Button } from "../components/ui/button";
+import Button from "../components/Button";
 const WelcomeScreen = ({navigation}) => {
   return (
     <>
@@ -21,7 +21,7 @@ const WelcomeScreen = ({navigation}) => {
         <View className="items-center justify-center ">
           <Medium style={{textAlign: 'center'}}>Manage you Expenses and check where you are spending</Medium>
         </View>
-        <Button onPress={() => navigation.navigate('Login')} ><Text style={{color:'white', fontFamily:'Poppins_600SemiBold'}}>Continue</Text></Button>
+        <Button onPress={() => navigation.navigate('Login')} label={'Login'}/>
       </View>
     </>
   );

@@ -2,9 +2,6 @@
 import * as React from "react";
 import { Platform, Text } from "react-native";
 
-
-
-// const H1 = React.forwardRef<TextRef, SlottableTextProps>(
 //   ({ className, asChild = false, ...props }, ref) => {
 //     const Component = asChild ? Slot.Text : RNText;
 //     return (
@@ -236,7 +233,17 @@ import { Platform, Text } from "react-native";
 interface Props {
   children: string;
   style?: any;
+  size?: number,
+  variant?: 'Bold' | 'SemiBold' | 'Medium' | 'Regular' | 'Thin',
+  color?: string,
 }
+const fontFamilies = {
+  Bold: "Poppins_700Bold",
+  SemiBold: "Poppins_600SemiBold",
+  Medium: "Poppins_500Medium",
+  Regular: "Poppins_400Regular",
+  Thin: "Poppins_300Light",
+};
 export const Large = ({ children, style, ...props }: Props) => {
   return (
     <Text style={[{ fontFamily: "Poppins_600SemiBold", fontSize: 24 }, style]} {...props}>{children}</Text>
@@ -288,10 +295,18 @@ export const H3 = ({ children, style}: Props) => {
     </Text>
   );
 };
-export const Label = ({ children, style, ...props }: Props) => {
+export const Label = ({
+  children,
+  style,
+  size = 14,
+  variant = 'Regular',
+  color = 'black',
+  ...props
+}: Props) => {
+  const fontFamily = fontFamilies[variant] || fontFamilies.Regular;
   return (
     <Text
-      style={[{ fontFamily: "Poppins_600SemiBold"}, style]}
+      style={[{ fontFamily: fontFamily, fontSize: size, color: color }, style]}
       {...props}
     >
       {children}

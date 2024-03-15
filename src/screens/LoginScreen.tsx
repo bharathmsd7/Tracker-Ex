@@ -4,10 +4,11 @@ import {
   useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import { screenHeight, screenWidth } from "../lib/utils";
-import { Button } from "../components/ui/button";
 import { H1, Label, Medium, Small } from "../components/ui/typography";
 import GoogleSignInButton from '../components/GoogleSignInButton';
 import { Input } from '../components/ui/input';
+import Button from '../components/Button';
+import InputText from '../components/InputText';
 
 const LoginScreen = ({navigation}) => {
   const [value, setValue] = React.useState("");
@@ -33,20 +34,9 @@ const LoginScreen = ({navigation}) => {
         />
 
         <View>
-          <Label>Email Address</Label>
-          <Input
-            className="mb-4"
-            placeholder="Enter Email here..."
-            value={value}
-            onChangeText={(e) => setValue(e)}
-            aria-labelledbyledBy="inputLabel"
-            aria-errormessage="inputError"
-          />
-          <Button onPress={() => navigation.navigate("Tab")}>
-            <Text style={{ color: "white", fontFamily: "Poppins_600SemiBold" }}>
-              Continue
-            </Text>
-          </Button>
+          <InputText label='Email' placeholder='Enter email address' />
+          <Button onPress={() => navigation.navigate("Tab")} label={"Login"} />
+
         </View>
         <View className="items-center justify-center flex-row">
           <View style={styles.divider} />
