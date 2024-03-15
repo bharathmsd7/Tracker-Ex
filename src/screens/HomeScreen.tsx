@@ -3,11 +3,14 @@ import React from 'react'
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { screenHeight, screenWidth } from "../lib/utils";
 import { Avatar, AvatarFallback, AvatarImage } from "../components/ui/avatar";
-import { Large, Medium, Small } from '../components/ui/typography';
+import { Label, Large, Medium, Small } from '../components/ui/typography';
 import Badge from '../components/ui/badge';
+import HeroCard from '../components/HeroCard';
+import ExpenseListCard from '../components/ExpenseListCard';
 const HomeScreen = () => {
     const insets = useSafeAreaInsets();
-    const GITHUB_AVATAR_URI = 'https://github.com/mrzachnugent.png';
+    const GITHUB_AVATAR_URI =
+      "https://avatars.pfptown.com/597/rick-and-morty-pfp-4852.png";
   return (
     <View
       style={[
@@ -16,7 +19,7 @@ const HomeScreen = () => {
       ]}
     >
       {/* Welcome message */}
-      <View style={{ marginTop: 8, marginBottom: 16, flexDirection: "row" }}>
+      <View style={{ marginTop: 16, marginBottom: 22, flexDirection: "row" }}>
         <Avatar alt="Zach Nugent's Avatar">
           <AvatarImage source={{ uri: GITHUB_AVATAR_URI }} />
           <AvatarFallback>
@@ -43,8 +46,20 @@ const HomeScreen = () => {
       </View>
 
       {/* Hero card */}
+      <HeroCard />
 
       {/* Expense List */}
+      <Label
+        style={{
+          color: "#6A7183",
+          fontSize: 14,
+          fontFamily: "Poppins_700Bold",
+        }}
+      >
+        Today, 3 Oct
+      </Label>
+      <ExpenseListCard />
+      <ExpenseListCard />
     </View>
   );
 }

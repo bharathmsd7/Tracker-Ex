@@ -278,11 +278,11 @@ export const H2 = ({ children, style, ...props }: Props) => {
   );
 };
 
-export const H3 = ({ children, style, ...props }: Props) => {
+export const H3 = ({ children, style}: Props) => {
   return (
     <Text
       style={[{ fontFamily: "Poppins_600SemiBold", fontSize: 28 }, style]}
-      {...props}
+  
     >
       {children}
     </Text>
