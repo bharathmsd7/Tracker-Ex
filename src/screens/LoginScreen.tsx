@@ -34,7 +34,7 @@ const LoginScreen = ({navigation}) => {
         />
 
         <View>
-          <InputText label='Email' placeholder='Enter email address' />
+          <InputText label='Email' keyboardType={"email-address"} placeholder='Enter email address' />
           <Button onPress={() => navigation.navigate("Tab")} label={"Login"} />
 
         </View>

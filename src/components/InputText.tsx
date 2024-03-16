@@ -3,27 +3,46 @@ import React, { useState } from "react";
 import { Label } from "./ui/typography";
 
 interface Props {
-  label?: string,
-  placeholder?: string
+  label?: string;
+  placeholder?: string;
+  value?: string;
+  onChangeText?: ((text: string) => void) | undefined;
+  keyboardType?:
+    | "default"
+    | "number-pad"
+    | "decimal-pad"
+    | "numeric"
+    | "email-address"
+    | "phone-pad"
+    | "url";
 }
-const InputText = ({label, placeholder}: Props) => {
-  const [isActive, setIsActive] = useState(false); 
+const InputText = ({
+  label,
+  placeholder,
+  value,
+  keyboardType,
+  onChangeText,
+}: Props) => {
+  const [isActive, setIsActive] = useState(false);
   const handleFocus = () => setIsActive(true);
   const handleBlur = () => setIsActive(false);
-
   return (
     <View>
       <Label variant="SemiBold">{label}</Label>
-      <TextInput placeholder={placeholder} style={[styles.inputContainer, isActive && styles.inputActive]}
-        onFocus={handleFocus} 
-        onBlur={handleBlur} 
+      <TextInput
+        value={value}
+        onChangeText={onChangeText}
+        placeholder={placeholder}
+        style={[styles.inputContainer, isActive && styles.inputActive]}
+        onFocus={handleFocus}
+        onBlur={handleBlur}
         cursorColor={"#3677F3"}
         selectionColor={"grey"}
-        >
-      </TextInput>
+        keyboardType={keyboardType}
+       />
     </View>
-  )
-}
+  );
+};
 
 export default InputText;
 

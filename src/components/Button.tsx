@@ -4,23 +4,53 @@ import { Label } from './ui/typography'
 
 interface Props {
     label: string,
-    onPress?: () => void
+    onPress?: () => void,
+    style?: {},
+    variant?: 'Normal' | 'Outline' | 'Disabled'
 }
-const Button = ({label, onPress}: Props) => {
+const Button = ({label, style, onPress, variant = 'Normal'}: Props) => {
   return (
-    <Pressable onPress={onPress} style={styles.container}>
-      <Label variant='SemiBold' color='white'>{label}</Label>
+    <Pressable
+      disabled={variant === "Disabled"}
+      onPress={onPress}
+      style={[
+        styles.container,
+        style,
+        variant === "Disabled" && styles.disabled,
+        variant === "Outline" && styles.outlined,
+        variant === "Normal" && styles.primary,
+      ]}
+    >
+      <Label
+        variant="SemiBold"
+        color={"white"}
+        style={[
+          variant === "Disabled" && { color: "grey" },
+          variant === "Outline" && { color: "black" },
+        ]}
+      >
+        {label}
+      </Label>
     </Pressable>
-  )
+  );
 }
 
 export default Button
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#0E0E12",
-    padding: 16,
+    padding: 14,
     borderRadius: 10,
     alignItems: "center",
+  },
+  primary: {
+    backgroundColor: "#0E0E12",
+  },
+  disabled: {
+    backgroundColor: "#E5E5E5",
+  },
+  outlined: {
+    borderWidth: 2,
+    borderColor: "#0E0E12",
   },
 });

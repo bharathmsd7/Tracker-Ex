@@ -10,6 +10,7 @@ import InsightScreen from "../screens/InsightScreen";
 import AddExpenseScreen from "../screens/AddExpenseScreen";
 import { Home, PieChart, Plus} from "lucide-react-native";
 import { H1 } from "../components/ui/typography";
+import CategoryScreen from "../screens/CategoryScreen";
 
 const WelcomeScreenWrapper = ({ navigation }) => {
   return (
@@ -18,7 +19,13 @@ const WelcomeScreenWrapper = ({ navigation }) => {
     </FontWrapper>
   );
 };
-
+const CategoryScreenWrapper = ({ navigation }) => {
+  return (
+    <FontWrapper>
+      <CategoryScreen navigation={navigation} />
+    </FontWrapper>
+  );
+};
 const LoginScreenWrapper = ({ navigation }) => {
   return (
     <FontWrapper>
@@ -132,6 +139,7 @@ const StackNavigation = () => {
       <Stack.Screen name="Tab" component={TabNavigation} />
       <Stack.Screen name="Welcome" component={WelcomeScreenWrapper} />
       <Stack.Screen name="Login" component={LoginScreenWrapper} />
+      <Stack.Screen name="Category" component={CategoryScreenWrapper} />
     </Stack.Navigator>
   );
 };

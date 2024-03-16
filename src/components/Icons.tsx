@@ -3,6 +3,7 @@ import {
   CheckCircle,
   LucideIcon,
   XCircle,
+  X
 } from "lucide-react-native";
 import { cssInterop } from "nativewind";
 
@@ -21,5 +22,6 @@ function interopIcon(icon: LucideIcon) {
 interopIcon(AlertCircle);
 interopIcon(CheckCircle);
 interopIcon(XCircle);
+interopIcon(X);
 
-export { AlertCircle, CheckCircle, XCircle };
+export { AlertCircle, CheckCircle, XCircle, X };
