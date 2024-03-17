@@ -21,7 +21,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.bharathdev.trackerex"
     },
     "web": {
       "bundler": "metro",
@@ -30,6 +31,15 @@
     "plugins": [
       "expo-router",
       "expo-font"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "37e94718-dd5a-4591-83ff-3da6992d51a8"
+      }
+    },
+    "owner": "bharathm"
   }
 }

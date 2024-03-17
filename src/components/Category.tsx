@@ -3,10 +3,30 @@ import React from 'react'
 import { Label } from './ui/typography'
 import { screenWidth } from '../lib/utils';
 
+const categoryEmojis = {
+  Food: "🍜",
+  Family: "👥",
+  Fuel: "⛽️",
+  Education: "📖",
+  Shopping: "🛍️",
+  Socializing: "🎉",
+  Transfer: "🔃",
+  Housing: "🏠",
+  "Bills/Utilities": "💡",
+  Healthcare: "💊",
+  "Phone/Internet": "📱",
+  Entertainment: "🎬",
+  Travel: "✈️",
+  Withdrawal: "🏧",
+  Transportation: "🚌",
+  Miscellaneous: "🍀",
+};
+
 const Category = ({title}) => {
+  const emoji = categoryEmojis[title] || "❓";
   return (
     <Pressable android_ripple={{color: 'white', radius: 100}} style={styles.container}>
-      <Label size={28}>💰</Label>
+      <Label size={24}>{emoji}</Label>
       <Label variant="Medium">{title}</Label>
     </Pressable>
   );
